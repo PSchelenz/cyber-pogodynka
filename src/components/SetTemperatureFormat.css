@@ -1,0 +1,41 @@
+.rect-button {
+    position: relative;
+    background-color: var(--background);
+    height: 37px;
+    width: 37px;
+    border-radius: 6px;
+}
+
+.rect-button.format span {
+    position: absolute;
+    background-color: transparent;
+    color: var(--primary);
+    text-shadow: var(--neon);
+    font-size: 24px;
+    font-weight: 600;
+    top: 0;
+    left: 3px;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+.rect-button.format span::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+}
+
+.rect-button span.show {
+    opacity: 1;
+}

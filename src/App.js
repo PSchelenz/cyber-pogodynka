@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Fragment, useState } from "react";
+import WeatherList from "./components/WeatherList";
+import SetCity from "./components/SetCity";
+import video from "../src/videos/cyberback.mp4";
+import SetTimestamp from "./components/SetTimestamp";
+import SetTemperatureFormat from "./components/SetTemperatureFormat";
 
 function App() {
+  const [city, setCity] = useState(null);
+  const [timestamp, setTimestamp] = useState('days');
+  const [temperatureFormat, setTemperatureFormat] = useState('fahrenheit');
+
+  const handleCitySubmit = (city) => {
+    setCity(city);
+  };
+
+  const handleTimestampSubmit = (ts) => {
+    setTimestamp(ts);
+  }
+
+  const handleFormatSubmit = (format) => {
+    setTemperatureFormat(format);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <video src={video} className="video-wrapper" autoPlay muted loop></video>
+      <div className="input-bar">
+        <SetCity onCitySubmit={handleCitySubmit}/>
+        <SetTimestamp onTimestampSubmit={handleTimestampSubmit} timestamp={timestamp} />
+        <SetTemperatureFormat onFormatSubmit={handleFormatSubmit} temperatureFormat={temperatureFormat} />
+      </div>
+      <WeatherList city={city} timestamp={timestamp} temperatureFormat={temperatureFormat} />
+    </Fragment>
   );
 }
 
