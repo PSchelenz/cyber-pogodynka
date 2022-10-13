@@ -4,4 +4,4 @@ Hobbystyczna aplikacja do sprawdzania różnych informacji na temat w różnych 
 Dostępne konfiguracje:
 - zmiana formatu temperatury,
 - zmiana miasta,
-- zmiana z interwałów godzinowych na dzienne
+- zmiana z interwałów godzinowych na dzienne.
